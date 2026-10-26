@@ -1,5 +1,8 @@
 # fullstack_developer_capstone
 
+- **Repository name:** `cars-dealership-capstone`
+- **Project name:** `fullstack_developer_capstone`
+
 Full-stack car dealership review application built with **Django REST-style views** and a React frontend. This repository is the working source project for the 28-task capstone checklist.
 
 ## Features
