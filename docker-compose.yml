@@ -1,0 +1,11 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      DJANGO_DEBUG: "True"
+      DJANGO_SECRET_KEY: "local-compose-key-change-before-deployment"
+      DJANGO_ALLOWED_HOSTS: "127.0.0.1,localhost,web"
+    volumes:
+      - .:/app
