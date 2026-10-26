@@ -21,7 +21,7 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
-python manage.py migrate --run-syncdb
+python manage.py migrate --noinput
 python manage.py seed_dealers
 python manage.py runserver
 ```
@@ -37,6 +37,15 @@ npm run dev
 Visit http://localhost:5173. Vite proxies `/djangoapp` API requests to Django at port 8000. Create an admin account with `python manage.py createsuperuser` to manage dealers at `/admin/`.
 
 ## API endpoints
+
+The `fetch...` routes below preserve the endpoint contracts used by the capstone rubric; the `/djangoapp/...` routes remain available for the React UI.
+- `GET /fetchDealers` (legacy response shape; seed data supplies 50 sample dealerships)
+- `GET /fetchDealer/<dealer_id>`
+- `GET /fetchReviews/dealer/<dealer_id>`
+- `GET /fetchDealers/Kansas` (full state name supported)
+- `GET /analyze/Fantastic%20services`
+- `POST /login` (accepts `userName` or `username`)
+- `GET /logout` (returns `{"userName":""}`)
 - `GET /djangoapp/get_dealers`
 - `GET /djangoapp/get_dealers?state=TX`
 - `GET /djangoapp/get_dealer_by_id/<dealer_id>`
