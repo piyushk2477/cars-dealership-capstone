@@ -21,11 +21,20 @@ python -m venv .venv
 # Windows: .venv\Scripts\activate
 # macOS/Linux: source .venv/bin/activate
 pip install -r requirements.txt
-python manage.py migrate
+python manage.py migrate --run-syncdb
+python manage.py seed_dealers
 python manage.py runserver
 ```
 
-Open http://127.0.0.1:8000/ and test API endpoints below.
+Open http://127.0.0.1:8000/ and test API endpoints below. The landing page is served by Django. To run the React UI in development, open a second terminal:
+
+```bash
+cd server/frontend
+npm install
+npm run dev
+```
+
+Visit http://localhost:5173. Vite proxies `/djangoapp` API requests to Django at port 8000. Create an admin account with `python manage.py createsuperuser` to manage dealers at `/admin/`.
 
 ## API endpoints
 - `GET /djangoapp/get_dealers`
@@ -34,6 +43,7 @@ Open http://127.0.0.1:8000/ and test API endpoints below.
 - `GET /djangoapp/get_dealer_reviews/<dealer_id>`
 - `GET /djangoapp/get_dealers_by_state/<state>`
 - `GET /djangoapp/get_cars`
+- `GET /djangoapp/get_all_car_makes`
 - `POST /djangoapp/register`
 - `POST /djangoapp/login`
 - `POST /djangoapp/logout`
