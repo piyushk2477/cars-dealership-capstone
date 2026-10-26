@@ -1,6 +1,63 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>About | Cars Dealership</title>
-<style>body{font:16px/1.6 system-ui,sans-serif;margin:0;color:#172033;background:#f5f7fb}header{background:#13294b;color:white;padding:1rem 8vw}main{max-width:900px;margin:3rem auto;padding:2rem;background:white;border-radius:14px}a{color:#1458a6}</style></head>
-<body><header><strong>Cars Dealership</strong> · <a href="/" style="color:white">Home</a> · <a href="/Contact.html" style="color:white">Contact</a></header>
-<main><h1>About Cars Dealership</h1><p>Find dealership information, compare customer experiences, and read reviews before your next vehicle purchase.</p><p>This capstone demonstrates a full-stack application using Django for API services and a React-based user interface.</p><h2>Our goal</h2><p>Make dealership information easier to explore and customer feedback easier to discover.</p></main></body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us | Cars Dealership</title>
+  <link rel="stylesheet" href="/static/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-brand" href="/">Cars Dealership</a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a class="active" aria-current="page" href="/About.html">About Us</a>
+      <a href="/Contact.html">Contact Us</a>
+    </nav>
+  </header>
+  <main class="page-wrap">
+    <section class="page-hero">
+      <div>
+        <p class="eyebrow">OUR PURPOSE</p>
+        <h1>Make every dealership decision more informed.</h1>
+        <p>Cars Dealership is a full-stack capstone application that brings dealership details and customer reviews together in one clear, easy-to-use experience.</p>
+      </div>
+      <img class="hero-photo" src="https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1200&q=80" alt="Modern car parked on a road">
+    </section>
+    <section class="info-card">
+      <h2>What we do</h2>
+      <p>Visitors can explore dealership listings, filter by state, open a dealer profile, and read customer feedback. Registered users can share their own purchase experiences.</p>
+      <div class="feature-grid">
+        <article><h3>Explore</h3><p>Review dealership locations and contact information.</p></article>
+        <article><h3>Compare</h3><p>Read feedback before deciding which dealer to visit.</p></article>
+        <article><h3>Contribute</h3><p>Share a review with purchase and vehicle details.</p></article>
+      </div>
+    </section>
+    <section class="info-card">
+      <h2>Project team</h2>
+      <div class="team-grid">
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=400&q=80" alt="Portrait representing project development">
+          <h3>Piyush Kanakdande</h3><p class="role">Full-stack project developer</p>
+          <p>Coordinates the application experience, API integration, and project implementation.</p>
+          <a href="https://github.com/piyushk2477">github.com/piyushk2477</a>
+        </article>
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=400&q=80" alt="Laptop showing software development work">
+          <h3>Frontend Engineering</h3><p class="role">User interface and accessibility</p>
+          <p>Builds responsive pages and clear workflows for browsing and reviewing dealers.</p>
+          <a href="mailto:support@cars-dealership-demo.example">support@cars-dealership-demo.example</a>
+        </article>
+        <article class="team-card">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=400&q=80" alt="Analytics dashboard on a screen">
+          <h3>Backend Engineering</h3><p class="role">Django API and data</p>
+          <p>Supports dealer records, authentication, review submission, and sentiment analysis.</p>
+          <a href="mailto:support@cars-dealership-demo.example">support@cars-dealership-demo.example</a>
+        </article>
+      </div>
+      <p class="disclaimer">This is an educational capstone. Team labels and demo contact details are included for presentation and should be replaced with verified project contacts before public production use.</p>
+    </section>
+  </main>
+  <footer class="site-footer"><span>Cars Dealership Capstone</span><a href="/Contact.html">Contact Us</a></footer>
+</body>
+</html>
