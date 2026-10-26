@@ -131,7 +131,7 @@ def register_user(request):
         return JsonResponse({"error": "username, email, and password are required"}, status=400)
     if User.objects.filter(username=username).exists():
         return JsonResponse({"error": "Username already exists"}, status=409)
-    user = User.objects.create_user(username=username, password=password, email=email)
+    user = User.objects.create_user(username=username, password=password, email=email, first_name=str(data.get("first_name", data.get("firstName", ""))).strip(), last_name=str(data.get("last_name", data.get("lastName", ""))).strip())
     return JsonResponse({"message": "Registration successful", "user": {"id": user.id, "username": user.username}}, status=201)
 
 @csrf_exempt
