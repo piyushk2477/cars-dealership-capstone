@@ -230,3 +230,15 @@ def legacy_fetch_reviews(request, dealer_id):
 @require_GET
 def legacy_analyze(request, text):
     return JsonResponse({"sentiment": _sentiment(text)})
+
+@csrf_exempt
+@require_POST
+def legacy_login(request):
+    data = _body(request)
+    username = data.get("userName", data.get("username", ""))
+    password = data.get("password", data.get("Password", ""))
+    user = authenticate(request, username=username, password=password)
+    if user is None:
+        return JsonResponse({"error": "Invalid username or password"}, status=401)
+    login(request, user)
+    return JsonResponse({"userName": user.username, "status": "Authenticated"})
