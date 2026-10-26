@@ -48,9 +48,11 @@ def _legacy_dealer_dict(dealer):
         "_id": str(dealer.id), "id": dealer.id, "city": dealer.city,
         "state": STATE_NAMES.get(dealer.state, dealer.state),
         "address": dealer.address, "zip": dealer.zip_code,
-        "lat": round(lat + (dealer.id % 7) * 0.01, 6),
-        "long": round(long + (dealer.id % 7) * 0.01, 6),
-        "short_name": dealer.name, "full_name": dealer.name, "__v": 0,
+        "lat": f"{lat + (dealer.id % 7) * 0.01:.4f}",
+        "long": f"{long + (dealer.id % 7) * 0.01:.4f}",
+        "short_name": dealer.name.replace(" Car Dealership", ""),
+        "full_name": dealer.name if dealer.name.endswith("Car Dealership") else f"{dealer.name} Car Dealership",
+        "__v": 0,
     }
 
 @require_GET
@@ -144,14 +146,14 @@ def login_user(request):
     if user is None:
         return JsonResponse({"error": "Invalid username or password"}, status=401)
     login(request, user)
-    return JsonResponse({"message": "Login successful", "user": {"id": user.id, "username": user.username}, "userName": user.username, "status": "Authenticated"})
+    return JsonResponse({"userName": user.username, "status": "Authenticated"})
 
 @csrf_exempt
 def logout_user(request):
     if request.method not in ("GET", "POST"):
         return JsonResponse({"error": "Use GET or POST"}, status=405)
     logout(request)
-    if request.path == "/logout":
+    if request.method == "GET":
         return JsonResponse({"userName": ""})
     return JsonResponse({"message": "Logout successful", "userName": ""})
 
