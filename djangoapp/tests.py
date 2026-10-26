@@ -2,7 +2,7 @@ import json
 from django.test import TestCase
 from django.urls import reverse
 from django.contrib.auth.models import User
-from .models import Dealer
+from .models import Dealer, Review
 
 class DealershipApiTests(TestCase):
     def setUp(self):
@@ -68,4 +68,12 @@ class DealershipApiTests(TestCase):
         self.assertEqual(response.json(), {"userName": ""})
 
     def test_car_year_review_field(self):
-        self.assertTrue(hasattr(self.dealer, "id"))
+        self.assertEqual(Review._meta.get_field("car_year").max_length, 4)
+
+    def test_legacy_login_contract(self):
+        User.objects.create_user(username="rubric-user", password="test-password")
+        response = self.client.post("/login", data=json.dumps({
+            "userName": "rubric-user", "password": "test-password"
+        }), content_type="application/json")
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.json(), {"userName": "rubric-user", "status": "Authenticated"})
