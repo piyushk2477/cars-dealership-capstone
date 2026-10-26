@@ -43,7 +43,10 @@ jobs:
       - name: Print working directory
         run: pwd
       - name: Run Linter
-        run: jshint server/frontend/src --exclude server/frontend/src/styles.css
+        run: |
+          jshint server/frontend/vite.config.js
+          npm install --prefix server/frontend
+          npm run build --prefix server/frontend
 
   test:
     name: Django tests
