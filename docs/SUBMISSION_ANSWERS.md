@@ -118,7 +118,29 @@ Previously received full credit. Keep the existing `admin_logout.png` screenshot
 curl.exe http://127.0.0.1:8000/djangoapp/get_cars
 ```
 
-Expected response shape: a JSON object containing a `CarModels` array with 15 `CarModel` / `CarMake` pairs. Paste the full output from the running server.
+Expected JSON (paste the real output from your server; the response also contains a compatibility `cars` key):
+
+```json
+{
+  "CarModels": [
+    {"CarModel":"Pathfinder","CarMake":"NISSAN"},
+    {"CarModel":"Qashqai","CarMake":"NISSAN"},
+    {"CarModel":"XTRAIL","CarMake":"NISSAN"},
+    {"CarModel":"A-Class","CarMake":"Mercedes"},
+    {"CarModel":"C-Class","CarMake":"Mercedes"},
+    {"CarModel":"E-Class","CarMake":"Mercedes"},
+    {"CarModel":"A4","CarMake":"Audi"},
+    {"CarModel":"A5","CarMake":"Audi"},
+    {"CarModel":"A6","CarMake":"Audi"},
+    {"CarModel":"Sorrento","CarMake":"Kia"},
+    {"CarModel":"Carnival","CarMake":"Kia"},
+    {"CarModel":"Cerato","CarMake":"Kia"},
+    {"CarModel":"Corolla","CarMake":"Toyota"},
+    {"CarModel":"Camry","CarMake":"Toyota"},
+    {"CarModel":"Kluger","CarMake":"Toyota"}
+  ]
+}
+```
 
 ## Task 16 — Sentiment analysis
 
