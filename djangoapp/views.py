@@ -63,6 +63,14 @@ def get_cars(request):
         {"id": 3, "make": "Ford", "model": "Mustang", "year": 2023},
     ]})
 
+@require_GET
+def get_all_car_makes(request):
+    """Return the unique car makes available in the starter inventory."""
+    makes = sorted({car["make"] for car in [
+        {"make": "Toyota"}, {"make": "Honda"}, {"make": "Ford"}
+    ]})
+    return JsonResponse({"car_makes": makes})
+
 @csrf_exempt
 @require_POST
 def register_user(request):
