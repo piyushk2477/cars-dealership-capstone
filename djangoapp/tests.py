@@ -66,6 +66,9 @@ class DealershipApiTests(TestCase):
         response = self.client.get("/logout")
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.json(), {"userName": ""})
+        djangoapp_response = self.client.get("/djangoapp/logout")
+        self.assertEqual(djangoapp_response.status_code, 200)
+        self.assertEqual(djangoapp_response.json(), {"userName": ""})
 
     def test_car_year_review_field(self):
         self.assertEqual(Review._meta.get_field("car_year").max_length, 4)
