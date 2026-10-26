@@ -6,6 +6,7 @@ DEALERS = [
     {"name": "Lakeside Motors", "city": "Dallas", "state": "TX", "address": "250 Main Street", "zip_code": "75201"},
     {"name": "Golden Gate Cars", "city": "San Francisco", "state": "CA", "address": "75 Market Street", "zip_code": "94105"},
     {"name": "Empire State Auto", "city": "New York", "state": "NY", "address": "10 Broadway", "zip_code": "10004"},
+    {"name": "Prairie Star Motors", "city": "Wichita", "state": "KS", "address": "250 East Douglas Avenue", "zip_code": "67202"},
 ]
 
 class Command(BaseCommand):
