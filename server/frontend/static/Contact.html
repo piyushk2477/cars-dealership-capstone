@@ -1,6 +1,54 @@
 <!doctype html>
 <html lang="en">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Contact | Cars Dealership</title>
-<style>body{font:16px/1.6 system-ui,sans-serif;margin:0;color:#172033;background:#f5f7fb}header{background:#13294b;color:white;padding:1rem 8vw}main{max-width:760px;margin:3rem auto;padding:2rem;background:white;border-radius:14px}a{color:#1458a6}label{display:block;margin-top:1rem}input,textarea{width:100%;box-sizing:border-box;padding:.7rem;border:1px solid #ccd3df;border-radius:8px}button{margin-top:1rem;background:#1458a6;color:white;border:0;border-radius:8px;padding:.75rem 1rem}</style></head>
-<body><header><strong>Cars Dealership</strong> · <a href="/" style="color:white">Home</a> · <a href="/About.html" style="color:white">About</a></header>
-<main><h1>Contact us</h1><p>Questions about dealership listings or reviews? Send a message using the form below.</p><form onsubmit="event.preventDefault();document.getElementById('status').textContent='Thanks! This demo form does not send messages to a server.'"><label for="name">Name</label><input id="name" name="name" required><label for="email">Email</label><input id="email" name="email" type="email" required><label for="message">Message</label><textarea id="message" name="message" rows="4" required></textarea><button type="submit">Send message</button><p id="status" role="status"></p></form></main></body></html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contact Us | Cars Dealership</title>
+  <link rel="stylesheet" href="/static/site.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="site-brand" href="/">Cars Dealership</a>
+    <nav aria-label="Main navigation">
+      <a href="/">Home</a>
+      <a href="/About.html">About Us</a>
+      <a class="active" aria-current="page" href="/Contact.html">Contact Us</a>
+    </nav>
+  </header>
+  <main class="page-wrap contact-layout">
+    <section class="contact-intro">
+      <p class="eyebrow">GET IN TOUCH</p>
+      <h1>How can we help?</h1>
+      <p>Questions about dealership listings, customer reviews, or this capstone application? Send a message using the form.</p>
+      <img class="contact-photo" src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?auto=format&fit=crop&w=1000&q=80" alt="Team collaborating at a table">
+      <div class="contact-details">
+        <h2>Project contact</h2>
+        <p><strong>Project:</strong> Cars Dealership Capstone</p>
+        <p><strong>Developer:</strong> Piyush Kanakdande</p>
+        <p><strong>GitHub:</strong> <a href="https://github.com/piyushk2477/cars-dealership-capstone">Project repository</a></p>
+        <p><strong>Demo email:</strong> <a href="mailto:support@cars-dealership-demo.example">support@cars-dealership-demo.example</a></p>
+      </div>
+    </section>
+    <section class="info-card contact-form-card">
+      <h2>Send us a message</h2>
+      <p class="muted">Complete all fields. This demo validates the form in your browser and does not send data to a server.</p>
+      <form id="contact-form">
+        <label for="name">Full name</label><input id="name" name="name" placeholder="Your full name" required>
+        <label for="email">Email address</label><input id="email" name="email" type="email" placeholder="you@example.com" required>
+        <label for="subject">Subject</label><input id="subject" name="subject" placeholder="How can we help?" required>
+        <label for="message">Message</label><textarea id="message" name="message" rows="5" placeholder="Write your message..." required></textarea>
+        <button class="primary-button" type="submit">Send Message</button>
+        <p id="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+  </main>
+  <footer class="site-footer"><span>Cars Dealership Capstone</span><a href="/About.html">About Us</a></footer>
+  <script>
+    document.getElementById("contact-form").addEventListener("submit", function (event) {
+      event.preventDefault();
+      document.getElementById("status").textContent = "Thanks! Your form is valid. This demo does not send messages to a server.";
+      this.reset();
+    });
+  </script>
+</body>
+</html>
